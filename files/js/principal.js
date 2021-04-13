@@ -23,6 +23,12 @@ var pacientes = document.querySelectorAll(".paciente");
         paciente.querySelector(".info-imc").textContent = imc.toFixed(2);
     }
     else {
+        // Não é recomendável trocar os valores diretamente
+        // paciente.style.color = "white"
+        // paciente.style.backgroundColor = "lightcoral"
+        // É recomendável manipular as classes do elemento:
+        paciente.classList.add("paciente-invalido");
+
         paciente.querySelector(".info-imc").textContent = "Dados Inválidos!";
     }
  }
