@@ -1,26 +1,8 @@
-var botao = document.querySelector("#adicionar-paciente");
+/* Quando existe o "id" nos elementos de um form,
+ * é possível acessá-los usando: form.nomeCampo
+ */
 
-// Adição de evento de click com chamada de função anônima:
-botao.addEventListener("click", function (event) {
-   // Impede o comportamento padrão de botões em formulário:
-   // (atualizar página e limpar formulário )
-   event.preventDefault();
-
-   var form = document.querySelector("#form-adiciona");
-   var paciente = obtemPacienteDoFormulario(form);
-
-   pacienteTr = montaTr(paciente);
-
-   var tabela = document.querySelector("#tabela-pacientes");
-
-   //Adiciona a linha na tabela:
-   tabela.appendChild(pacienteTr);
-
-   form.reset(); // Limpa os campos do formulário
-});
-
-// Quando existe o "name" nos elementos de um form é possível acessá-los \
-// usando: form.nomeCampo
+// Cria um objeto paciente com os dados inseridos no formulário:
 function obtemPacienteDoFormulario(form) {
    var paciente = {
       nome: form.nome.value,
@@ -54,3 +36,24 @@ function montaTr(paciente) {
 
    return pacienteTr;
 }
+
+var botao = document.querySelector("#adicionar-paciente");
+
+// Adição de evento de click com chamada de função anônima:
+botao.addEventListener("click", function (event) {
+   // Impede o comportamento padrão de botões em formulário:
+   // (atualizar página e limpar formulário )
+   event.preventDefault();
+
+   var form = document.querySelector("#form-adiciona");
+   var paciente = obtemPacienteDoFormulario(form);
+
+   pacienteTr = montaTr(paciente);
+
+   var tabela = document.querySelector("#tabela-pacientes");
+
+   //Adiciona a linha na tabela:
+   tabela.appendChild(pacienteTr);
+
+   form.reset(); // Limpa os campos do formulário
+});
