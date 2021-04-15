@@ -50,7 +50,7 @@ function pacienteValido(paciente) {
    var erros = [];
 
    if (paciente.nome.trim().length == 0) {
-      erros.push("Nome inválido!");
+      erros.push("Valor inválido para o nome!");
    }
 
    if (!pesoValido(paciente.peso)) {
