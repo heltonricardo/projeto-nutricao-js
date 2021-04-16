@@ -39,7 +39,7 @@ function montaTr(paciente) {
 
 function exibeErros(erros) {
    var ul = document.querySelector("#mensagem-erro");
-   erros.forEach(function(erro) {
+   erros.forEach(function (erro) {
       var li = document.createElement("li");
       li.textContent = erro;
       ul.appendChild(li);
@@ -73,6 +73,13 @@ function pacienteValido(paciente) {
    return true;
 }
 
+function adicionaPacienteNaTabela(paciente) {
+   pacienteTr = montaTr(paciente);
+   var tabela = document.querySelector("#tabela-pacientes");
+   //Adiciona a linha na tabela:
+   tabela.appendChild(pacienteTr);
+}
+
 var botao = document.querySelector("#adicionar-paciente");
 
 // Adição de evento de click com chamada de função anônima:
@@ -88,13 +95,7 @@ botao.addEventListener("click", function (event) {
    var paciente = obtemPacienteDoFormulario(form);
 
    if (pacienteValido(paciente)) {
-      pacienteTr = montaTr(paciente);
-
-      var tabela = document.querySelector("#tabela-pacientes");
-
-      //Adiciona a linha na tabela:
-      tabela.appendChild(pacienteTr);
-
+      adicionaPacienteNaTabela(paciente);
       form.reset(); // Limpa os campos do formulário
    }
 });
