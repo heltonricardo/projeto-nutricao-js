@@ -23,9 +23,8 @@ botaoBuscar.addEventListener("click", function () {
          pacientes.forEach(function (paciente) {
             adicionaPacienteNaTabela(paciente);
          });
-      }
-      else {
-          alert("Erro durante a importação. Código " + xhr.status + ".");
+      } else {
+         alert("Erro durante a importação. Código " + xhr.status + ".");
       }
    });
 
